@@ -1,0 +1,102 @@
+{
+  "mappings": {
+    "net/caffeinemc/phosphor/mixin/ClientPlayerInteractionManagerAccessor": {
+      "syncSelectedSlot": "method_2911()V"
+    },
+    "net/caffeinemc/phosphor/mixin/ClientWorldMixin": {
+      "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
+    },
+    "net/caffeinemc/phosphor/mixin/MixinKeyboardHandler": {
+      "onKey": "Lnet/minecraft/class_309;method_1466(JIIII)V"
+    },
+    "net/caffeinemc/phosphor/mixin/chunk/MixinChunkStatus": {
+      "<clinit>": "Lnet/minecraft/class_2806;<clinit>()V",
+      "Lnet/minecraft/world/chunk/ChunkStatus;register(Ljava/lang/String;Lnet/minecraft/world/chunk/ChunkStatus;ILjava/util/EnumSet;Lnet/minecraft/world/chunk/ChunkStatus$ChunkType;Lnet/minecraft/world/chunk/ChunkStatus$GenerationTask;Lnet/minecraft/world/chunk/ChunkStatus$LoadTask;)Lnet/minecraft/world/chunk/ChunkStatus;": "Lnet/minecraft/class_2806;method_20611(Ljava/lang/String;Lnet/minecraft/class_2806;ILjava/util/EnumSet;Lnet/minecraft/class_2806$class_2808;Lnet/minecraft/class_2806$class_2807;Lnet/minecraft/class_2806$class_4305;)Lnet/minecraft/class_2806;"
+    },
+    "net/caffeinemc/phosphor/mixin/chunk/MixinProtoChunk": {
+      "Lnet/minecraft/world/chunk/ChunkSection;setBlockState(IIILnet/minecraft/block/BlockState;)Lnet/minecraft/block/BlockState;": "Lnet/minecraft/class_2826;method_16675(IIILnet/minecraft/class_2680;)Lnet/minecraft/class_2680;",
+      "setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;Z)Lnet/minecraft/block/BlockState;": "Lnet/minecraft/class_2839;method_12010(Lnet/minecraft/class_2338;Lnet/minecraft/class_2680;Z)Lnet/minecraft/class_2680;"
+    },
+    "net/caffeinemc/phosphor/mixin/chunk/light/MixinChunkLightProvider": {
+      "Lnet/minecraft/world/chunk/light/LightStorage;notifyChanges()V": "Lnet/minecraft/class_3560;method_15530()V",
+      "clearChunkCache": "Lnet/minecraft/class_3558;method_17530()V",
+      "doLightUpdates(IZZ)I": "Lnet/minecraft/class_3558;method_15516(IZZ)I"
+    },
+    "net/caffeinemc/phosphor/mixin/chunk/light/MixinLevelPropagator": {
+      "addPendingUpdate": "Lnet/minecraft/class_3554;method_15479(JII)V",
+      "applyPendingUpdates": "Lnet/minecraft/class_3554;method_15492(I)I",
+      "propagateLevel": "method_15484(JJIZ)V",
+      "removePendingUpdate(JIIZ)V": "Lnet/minecraft/class_3554;method_15493(JIIZ)V"
+    },
+    "net/caffeinemc/phosphor/mixin/chunk/light/MixinLightStorage": {
+      "Lnet/minecraft/world/chunk/ChunkToNibbleArrayMap;containsKey(J)Z": "Lnet/minecraft/class_3556;method_15503(J)Z",
+      "Lnet/minecraft/world/chunk/light/LightStorage;queuedSections:Lit/unimi/dsi/fastutil/longs/Long2ObjectMap;": "Lnet/minecraft/class_3560;field_15807:Lit/unimi/dsi/fastutil/longs/Long2ObjectMap;",
+      "Lnet/minecraft/world/chunk/light/LightStorage;storage:Lnet/minecraft/world/chunk/ChunkToNibbleArrayMap;": "Lnet/minecraft/class_3560;field_15796:Lnet/minecraft/class_3556;",
+      "createSection(J)Lnet/minecraft/world/chunk/ChunkNibbleArray;": "Lnet/minecraft/class_3560;method_15529(J)Lnet/minecraft/class_2804;",
+      "getLevel(J)I": "Lnet/minecraft/class_3560;method_15480(J)I",
+      "hasSection": "method_15524(J)Z",
+      "removeSection": "Lnet/minecraft/class_3560;method_15536(Lnet/minecraft/class_3558;J)V",
+      "setColumnEnabled": "method_15535(JZ)V"
+    },
+    "net/caffeinemc/phosphor/mixin/chunk/light/MixinSkyLightStorage": {
+      "()Lnet/minecraft/world/chunk/ChunkNibbleArray;": "()Lnet/minecraft/class_2804;",
+      "Lnet/minecraft/world/chunk/light/SkyLightStorage;queuedSections:Lit/unimi/dsi/fastutil/longs/Long2ObjectMap;": "Lnet/minecraft/class_3569;field_15807:Lit/unimi/dsi/fastutil/longs/Long2ObjectMap;",
+      "createSection(J)Lnet/minecraft/world/chunk/ChunkNibbleArray;": "Lnet/minecraft/class_3569;method_15529(J)Lnet/minecraft/class_2804;",
+      "isAboveMinHeight": "method_15567(I)Z"
+    },
+    "net/caffeinemc/phosphor/mixin/world/ThreadedAnvilChunkStorageAccess": {
+      "releaseLightTicket": "method_20441(Lnet/minecraft/class_1923;)V"
+    }
+  },
+  "data": {
+    "named:intermediary": {
+      "net/caffeinemc/phosphor/mixin/ClientPlayerInteractionManagerAccessor": {
+        "syncSelectedSlot": "method_2911()V"
+      },
+      "net/caffeinemc/phosphor/mixin/ClientWorldMixin": {
+        "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
+      },
+      "net/caffeinemc/phosphor/mixin/MixinKeyboardHandler": {
+        "onKey": "Lnet/minecraft/class_309;method_1466(JIIII)V"
+      },
+      "net/caffeinemc/phosphor/mixin/chunk/MixinChunkStatus": {
+        "<clinit>": "Lnet/minecraft/class_2806;<clinit>()V",
+        "Lnet/minecraft/world/chunk/ChunkStatus;register(Ljava/lang/String;Lnet/minecraft/world/chunk/ChunkStatus;ILjava/util/EnumSet;Lnet/minecraft/world/chunk/ChunkStatus$ChunkType;Lnet/minecraft/world/chunk/ChunkStatus$GenerationTask;Lnet/minecraft/world/chunk/ChunkStatus$LoadTask;)Lnet/minecraft/world/chunk/ChunkStatus;": "Lnet/minecraft/class_2806;method_20611(Ljava/lang/String;Lnet/minecraft/class_2806;ILjava/util/EnumSet;Lnet/minecraft/class_2806$class_2808;Lnet/minecraft/class_2806$class_2807;Lnet/minecraft/class_2806$class_4305;)Lnet/minecraft/class_2806;"
+      },
+      "net/caffeinemc/phosphor/mixin/chunk/MixinProtoChunk": {
+        "Lnet/minecraft/world/chunk/ChunkSection;setBlockState(IIILnet/minecraft/block/BlockState;)Lnet/minecraft/block/BlockState;": "Lnet/minecraft/class_2826;method_16675(IIILnet/minecraft/class_2680;)Lnet/minecraft/class_2680;",
+        "setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;Z)Lnet/minecraft/block/BlockState;": "Lnet/minecraft/class_2839;method_12010(Lnet/minecraft/class_2338;Lnet/minecraft/class_2680;Z)Lnet/minecraft/class_2680;"
+      },
+      "net/caffeinemc/phosphor/mixin/chunk/light/MixinChunkLightProvider": {
+        "Lnet/minecraft/world/chunk/light/LightStorage;notifyChanges()V": "Lnet/minecraft/class_3560;method_15530()V",
+        "clearChunkCache": "Lnet/minecraft/class_3558;method_17530()V",
+        "doLightUpdates(IZZ)I": "Lnet/minecraft/class_3558;method_15516(IZZ)I"
+      },
+      "net/caffeinemc/phosphor/mixin/chunk/light/MixinLevelPropagator": {
+        "addPendingUpdate": "Lnet/minecraft/class_3554;method_15479(JII)V",
+        "applyPendingUpdates": "Lnet/minecraft/class_3554;method_15492(I)I",
+        "propagateLevel": "method_15484(JJIZ)V",
+        "removePendingUpdate(JIIZ)V": "Lnet/minecraft/class_3554;method_15493(JIIZ)V"
+      },
+      "net/caffeinemc/phosphor/mixin/chunk/light/MixinLightStorage": {
+        "Lnet/minecraft/world/chunk/ChunkToNibbleArrayMap;containsKey(J)Z": "Lnet/minecraft/class_3556;method_15503(J)Z",
+        "Lnet/minecraft/world/chunk/light/LightStorage;queuedSections:Lit/unimi/dsi/fastutil/longs/Long2ObjectMap;": "Lnet/minecraft/class_3560;field_15807:Lit/unimi/dsi/fastutil/longs/Long2ObjectMap;",
+        "Lnet/minecraft/world/chunk/light/LightStorage;storage:Lnet/minecraft/world/chunk/ChunkToNibbleArrayMap;": "Lnet/minecraft/class_3560;field_15796:Lnet/minecraft/class_3556;",
+        "createSection(J)Lnet/minecraft/world/chunk/ChunkNibbleArray;": "Lnet/minecraft/class_3560;method_15529(J)Lnet/minecraft/class_2804;",
+        "getLevel(J)I": "Lnet/minecraft/class_3560;method_15480(J)I",
+        "hasSection": "method_15524(J)Z",
+        "removeSection": "Lnet/minecraft/class_3560;method_15536(Lnet/minecraft/class_3558;J)V",
+        "setColumnEnabled": "method_15535(JZ)V"
+      },
+      "net/caffeinemc/phosphor/mixin/chunk/light/MixinSkyLightStorage": {
+        "()Lnet/minecraft/world/chunk/ChunkNibbleArray;": "()Lnet/minecraft/class_2804;",
+        "Lnet/minecraft/world/chunk/light/SkyLightStorage;queuedSections:Lit/unimi/dsi/fastutil/longs/Long2ObjectMap;": "Lnet/minecraft/class_3569;field_15807:Lit/unimi/dsi/fastutil/longs/Long2ObjectMap;",
+        "createSection(J)Lnet/minecraft/world/chunk/ChunkNibbleArray;": "Lnet/minecraft/class_3569;method_15529(J)Lnet/minecraft/class_2804;",
+        "isAboveMinHeight": "method_15567(I)Z"
+      },
+      "net/caffeinemc/phosphor/mixin/world/ThreadedAnvilChunkStorageAccess": {
+        "releaseLightTicket": "method_20441(Lnet/minecraft/class_1923;)V"
+      }
+    }
+  }
+}
