@@ -1,36 +1,41 @@
 {
-    "required": true,
-    "package": "net.caffeinemc.phosphor.mixin",
-    "compatibilityLevel": "JAVA_17",
-    "mixins": [
-        "ClientPlayerInteractionManagerAccessor",
-        "ClientWorldMixin",
-        "MixinKeyboardHandler",
-        "block.MixinAbstractBlockState",
-        "block.MixinShapeCache",
-        "chunk.MixinChunkNibbleArray",
-        "chunk.MixinChunkStatus",
-        "chunk.MixinProtoChunk",
-        "chunk.MixinWorldChunk",
-        "chunk.light.MixinBlockLightStorage",
-        "chunk.light.MixinBlockLightStorageData",
-        "chunk.light.MixinChunkBlockLightProvider",
-        "chunk.light.MixinChunkLightProvider",
-        "chunk.light.MixinChunkSkyLightProvider",
-        "chunk.light.MixinChunkToNibbleArrayMap",
-        "chunk.light.MixinLevelPropagator",
-        "chunk.light.MixinLightingProvider",
-        "chunk.light.MixinLightStorage",
-        "chunk.light.MixinServerLightingProvider",
-        "chunk.light.MixinSkyLightStorage",
-        "chunk.light.MixinSkyLightStorageData",
-        "world.ThreadedAnvilChunkStorageAccess"
-    ],
-    "injectors": {
-        "defaultRequire": 1
-    },
-    "client": [
-        "MixinRenderSystem",
-        "MixinWindow"
-    ]
+  "required": true,
+  "package": "net.caffeinemc.phosphor.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ClientPlayerInteractionManagerAccessor",
+    "ClientWorldMixin",
+    "MixinKeyboardHandler",
+    "SprintMixin",
+    "SprintResetMixin",
+    "TriggerBotMixin",
+    "GamemodeMixin",
+    "block.MixinAbstractBlockState",
+    "block.MixinShapeCache",
+    "chunk.MixinChunkNibbleArray",
+    "chunk.MixinChunkStatus",
+    "chunk.MixinProtoChunk",
+    "chunk.MixinWorldChunk",
+    "chunk.light.MixinBlockLightStorage",
+    "chunk.light.MixinBlockLightStorageData",
+    "chunk.light.MixinChunkBlockLightProvider",
+    "chunk.light.MixinChunkLightProvider",
+    "chunk.light.MixinChunkSkyLightProvider",
+    "chunk.light.MixinChunkToNibbleArrayMap",
+    "chunk.light.MixinLevelPropagator",
+    "chunk.light.MixinLightingProvider",
+    "chunk.light.MixinLightStorage",
+    "chunk.light.MixinServerLightingProvider",
+    "chunk.light.MixinSkyLightStorage",
+    "chunk.light.MixinSkyLightStorageData",
+    "world.ThreadedAnvilChunkStorageAccess"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "MinecraftClientMixin",
+    "MixinRenderSystem",
+    "MixinWindow"
+  ]
 }

@@ -1,0 +1,29 @@
+[16:37:36] [main/INFO]: Loading Minecraft 1.19.2 with Fabric Loader 0.14.19
+[16:37:36] [main/WARN]: Incomplete remapped file found! This means that the remapping process failed on the previous launch. If this persists, make sure to let us at Fabric know!
+[16:37:36] [main/INFO]: Fabric is preparing JARs on first launch, this may take a few seconds...
+[16:37:36] [main/INFO]: Loading 3 mods:
+	- fabricloader 0.14.19
+	- java 17
+	- minecraft 1.19.2
+[16:37:36] [main/INFO]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=file:/C:/Users/Administrator/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.12.4+mixin.0.8.5/e13b4069fe3555969811d4474f78576c707bbe1c/sponge-mixin-0.12.4+mixin.0.8.5.jar Service=Knot/Fabric Env=CLIENT
+[16:37:41] [main/INFO]: Building optimized datafixer
+[16:37:43] [main/ERROR]: Minecraft has crashed!
+net.fabricmc.loader.impl.FormattedException: java.lang.IllegalAccessError: class net.minecraft.world.gen.chunk.ChunkGeneratorSettings tried to access protected method 'net.minecraft.world.gen.noise.NoiseRouter net.minecraft.world.gen.densityfunction.DensityFunctions.createSurfaceNoiseRouter(net.minecraft.util.registry.Registry, boolean, boolean)' (net.minecraft.world.gen.chunk.ChunkGeneratorSettings and net.minecraft.world.gen.densityfunction.DensityFunctions are in unnamed module of loader net.fabricmc.loader.impl.launch.knot.KnotClassLoader @a7e666)
+	at net.fabricmc.loader.impl.FormattedException.ofLocalized(FormattedException.java:63) ~[fabric-loader-0.14.19.jar:?]
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:464) ~[fabric-loader-0.14.19.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74) [fabric-loader-0.14.19.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) [fabric-loader-0.14.19.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) [dev-launch-injector-0.2.1+build.8.jar:?]
+Caused by: java.lang.IllegalAccessError: class net.minecraft.world.gen.chunk.ChunkGeneratorSettings tried to access protected method 'net.minecraft.world.gen.noise.NoiseRouter net.minecraft.world.gen.densityfunction.DensityFunctions.createSurfaceNoiseRouter(net.minecraft.util.registry.Registry, boolean, boolean)' (net.minecraft.world.gen.chunk.ChunkGeneratorSettings and net.minecraft.world.gen.densityfunction.DensityFunctions are in unnamed module of loader net.fabricmc.loader.impl.launch.knot.KnotClassLoader @a7e666)
+	at net.minecraft.world.gen.chunk.ChunkGeneratorSettings.createSurfaceSettings(ChunkGeneratorSettings.java:128) ~[minecraft-merged-project-root-1.19.2-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.jar:?]
+	at net.minecraft.world.gen.chunk.ChunkGeneratorSettings.initAndGetDefault(ChunkGeneratorSettings.java:82) ~[minecraft-merged-project-root-1.19.2-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.jar:?]
+	at net.minecraft.util.registry.BuiltinRegistries.method_44104(BuiltinRegistries.java:98) ~[minecraft-merged-project-root-1.19.2-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.jar:?]
+	at net.minecraft.util.registry.BuiltinRegistries.method_30566(BuiltinRegistries.java:105) ~[minecraft-merged-project-root-1.19.2-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.jar:?]
+	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:721) ~[?:?]
+	at net.minecraft.util.registry.BuiltinRegistries.<clinit>(BuiltinRegistries.java:104) ~[minecraft-merged-project-root-1.19.2-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.jar:?]
+	at net.minecraft.util.registry.Registry.<clinit>(Registry.java:326) ~[minecraft-merged-project-root-1.19.2-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.jar:?]
+	at net.minecraft.Bootstrap.initialize(Bootstrap.java:50) ~[minecraft-merged-project-root-1.19.2-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.jar:?]
+	at net.minecraft.client.main.Main.main(Main.java:161) ~[minecraft-merged-project-root-1.19.2-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.jar:?]
+	at net.minecraft.client.main.Main.main(Main.java:51) ~[minecraft-merged-project-root-1.19.2-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.jar:?]
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:462) ~[fabric-loader-0.14.19.jar:?]
+	... 3 more

@@ -7,6 +7,6 @@ public non-sealed interface ToggleableModule extends BaseModule {
     ImBoolean getToggle(OwoConfig config);
 
     default String getToggleText() {
-        return getName() + " Enabled";
+        return getName();
     }
 }

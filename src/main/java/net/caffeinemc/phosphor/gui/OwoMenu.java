@@ -9,8 +9,7 @@ import net.caffeinemc.phosphor.gui.module.BaseModule;
 import net.caffeinemc.phosphor.gui.module.BindableModule;
 import net.caffeinemc.phosphor.gui.module.ToggleableModule;
 import net.caffeinemc.phosphor.gui.module.RenderableModule;
-import net.caffeinemc.phosphor.modules.AutoJumpResetModule;
-import net.caffeinemc.phosphor.modules.OwoSettingsModule;
+import net.caffeinemc.phosphor.modules.*;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -26,6 +25,10 @@ public class OwoMenu implements Renderable {
     @Getter
     private static final List<BaseModule> modules = List.of(
             new AutoJumpResetModule(),
+            new AutoSprintResetModule(),
+            new BlockInjectorModule(),
+            new GamemodeModule(),
+            new TriggerModule(),
             new OwoSettingsModule()
     );
 
