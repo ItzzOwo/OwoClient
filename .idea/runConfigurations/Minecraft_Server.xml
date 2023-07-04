@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" factoryName="Application" name="Minecraft Server" type="Application">
     <option name="MAIN_CLASS_NAME" value="net.fabricmc.devlaunchinjector.Main"/>
-    <module name="radium-main.main"/>
+    <module name="owoclient-1.19.main"/>
     <option name="PROGRAM_PARAMETERS" value="nogui"/>
     <option name="VM_PARAMETERS" value="-Dfabric.dli.config=C:\Users\Administrator\Desktop\radium-main\.gradle\loom-cache\launch.cfg -Dfabric.dli.env=server -Dfabric.dli.main=net.fabricmc.loader.impl.launch.knot.KnotServer"/>
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run/"/>
