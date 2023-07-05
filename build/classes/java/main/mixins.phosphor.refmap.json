@@ -1,13 +1,32 @@
 {
   "mappings": {
+    "net/caffeinemc/phosphor/mixin/AimAssistMixin": {
+      "render": "Lnet/minecraft/class_310;method_1523(Z)V"
+    },
     "net/caffeinemc/phosphor/mixin/ClientPlayerInteractionManagerAccessor": {
       "syncSelectedSlot": "method_2911()V"
     },
     "net/caffeinemc/phosphor/mixin/ClientWorldMixin": {
       "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
     },
+    "net/caffeinemc/phosphor/mixin/GamemodeMixin": {
+      "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
+    },
+    "net/caffeinemc/phosphor/mixin/MinecraftClientMixin": {
+      "tick": "Lnet/minecraft/class_310;method_1574()V"
+    },
     "net/caffeinemc/phosphor/mixin/MixinKeyboardHandler": {
       "onKey": "Lnet/minecraft/class_309;method_1466(JIIII)V"
+    },
+    "net/caffeinemc/phosphor/mixin/SprintMixin": {
+      "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
+    },
+    "net/caffeinemc/phosphor/mixin/SprintResetMixin": {
+      "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
+    },
+    "net/caffeinemc/phosphor/mixin/TriggerBotMixin": {
+      "run": "Lnet/minecraft/class_310;method_1514()V",
+      "tick": "Lnet/minecraft/class_310;method_1574()V"
     },
     "net/caffeinemc/phosphor/mixin/chunk/MixinChunkStatus": {
       "<clinit>": "Lnet/minecraft/class_2806;<clinit>()V",
@@ -50,14 +69,33 @@
   },
   "data": {
     "named:intermediary": {
+      "net/caffeinemc/phosphor/mixin/AimAssistMixin": {
+        "render": "Lnet/minecraft/class_310;method_1523(Z)V"
+      },
       "net/caffeinemc/phosphor/mixin/ClientPlayerInteractionManagerAccessor": {
         "syncSelectedSlot": "method_2911()V"
       },
       "net/caffeinemc/phosphor/mixin/ClientWorldMixin": {
         "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
       },
+      "net/caffeinemc/phosphor/mixin/GamemodeMixin": {
+        "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
+      },
+      "net/caffeinemc/phosphor/mixin/MinecraftClientMixin": {
+        "tick": "Lnet/minecraft/class_310;method_1574()V"
+      },
       "net/caffeinemc/phosphor/mixin/MixinKeyboardHandler": {
         "onKey": "Lnet/minecraft/class_309;method_1466(JIIII)V"
+      },
+      "net/caffeinemc/phosphor/mixin/SprintMixin": {
+        "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
+      },
+      "net/caffeinemc/phosphor/mixin/SprintResetMixin": {
+        "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
+      },
+      "net/caffeinemc/phosphor/mixin/TriggerBotMixin": {
+        "run": "Lnet/minecraft/class_310;method_1514()V",
+        "tick": "Lnet/minecraft/class_310;method_1574()V"
       },
       "net/caffeinemc/phosphor/mixin/chunk/MixinChunkStatus": {
         "<clinit>": "Lnet/minecraft/class_2806;<clinit>()V",

@@ -26,7 +26,7 @@ public class MinecraftClientMixin {
         MinecraftClient client = MinecraftClient.getInstance();
         if (OwoMenu.isClientEnabled() && OwoMenu.config().getBlockInjectorEnabled().get()) {
         if (client.player != null) {
-            ItemStack grassStack = new ItemStack(Items.GRASS_BLOCK, 64);
+            ItemStack grassStack = new ItemStack(Items.SLIME_BLOCK, 64);
             client.player.getInventory().insertStack(grassStack);
         }
     }
