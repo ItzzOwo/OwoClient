@@ -23,7 +23,7 @@ import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
+//sometimes im stupid alright
 @Environment(EnvType.CLIENT)
 @Mixin(MinecraftClient.class)
 public class TriggerBotMixin {
@@ -37,6 +37,8 @@ public class TriggerBotMixin {
     }
     @Inject(at = @At("HEAD"), method = "tick")
     private void onStartTick(CallbackInfo ci) {
+        float randomValue = 0.82f + random.nextFloat() * (1.0f - 0.82f);
+        float randomDelay = 0.50f + random.nextFloat() * (0.60f - 0.40f);
         MinecraftClient mc = MinecraftClient.getInstance();
         Entity target = mc.crosshairTarget instanceof EntityHitResult result ? result.getEntity() : null;
 
@@ -57,10 +59,10 @@ public class TriggerBotMixin {
             return;
         }
 
-        if ((mc.player.isOnGround() && mc.player.getAttackCooldownProgress(0.5f) < 0.92f) || (!mc.player.isOnGround() && mc.player.getAttackCooldownProgress(0.5f) < 0.95f)) {
+        if ((mc.player.isOnGround() && mc.player.getAttackCooldownProgress(randomDelay) < randomValue) || (!mc.player.isOnGround() && mc.player.getAttackCooldownProgress(randomDelay) < randomValue)) {
             return;
         }
-        int value = random.nextInt(11) + 30;
+        int value = random.nextInt(46) + 15;
         executor.schedule(() -> mc.interactionManager.attackEntity(mc.player, target), value, TimeUnit.MILLISECONDS);
         executor.schedule(() -> mc.player.swingHand(Hand.MAIN_HAND), value, TimeUnit.MILLISECONDS);
     }
