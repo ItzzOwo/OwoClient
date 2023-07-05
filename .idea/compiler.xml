@@ -6,30 +6,6 @@
         <outputRelativeToContentRoot value="true" />
         <option name="defaultObfuscationEnv" value="named:intermediary" />
         <option name="inMapFileNamedIntermediary" value="C:\Users\Administrator\.gradle\caches\fabric-loom\1.19.2\net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2\mappings.tiny" />
-        <option name="outMapFileNamedIntermediary" value="C:\Users\Administrator\Desktop\radium-main\build\loom-cache\mixin-map-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.test.tiny" />
-        <option name="outRefMapFile" value="C:\Users\Administrator\Desktop\radium-main\build\classes\java\test\test-mixins.phosphor.refmap.json" />
-        <option name="quiet" value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.26/8f8cf0372abf564913e9796623aac4c8ea44025a/lombok-1.18.26.jar" />
-        </processorPath>
-        <module name="radium-main.test" />
-      </profile>
-      <profile name="Gradle Imported" enabled="true">
-        <outputRelativeToContentRoot value="true" />
-        <option name="defaultObfuscationEnv" value="named:intermediary" />
-        <option name="inMapFileNamedIntermediary" value="C:\Users\Administrator\.gradle\caches\fabric-loom\1.19.2\net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2\mappings.tiny" />
-        <option name="outMapFileNamedIntermediary" value="C:\Users\Administrator\Desktop\radium-main\build\loom-cache\mixin-map-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.main.tiny" />
-        <option name="outRefMapFile" value="C:\Users\Administrator\Desktop\radium-main\build\classes\java\main\mixins.phosphor.refmap.json" />
-        <option name="quiet" value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.26/8f8cf0372abf564913e9796623aac4c8ea44025a/lombok-1.18.26.jar" />
-        </processorPath>
-        <module name="radium-main.main" />
-      </profile>
-      <profile name="Gradle Imported" enabled="true">
-        <outputRelativeToContentRoot value="true" />
-        <option name="defaultObfuscationEnv" value="named:intermediary" />
-        <option name="inMapFileNamedIntermediary" value="C:\Users\Administrator\.gradle\caches\fabric-loom\1.19.2\net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2\mappings.tiny" />
         <option name="outMapFileNamedIntermediary" value="C:\Users\Administrator\Desktop\owoclient-1.19\build\loom-cache\mixin-map-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.test.tiny" />
         <option name="outRefMapFile" value="C:\Users\Administrator\Desktop\owoclient-1.19\build\classes\java\test\test-mixins.phosphor.refmap.json" />
         <option name="quiet" value="true" />
@@ -49,6 +25,30 @@
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.26/8f8cf0372abf564913e9796623aac4c8ea44025a/lombok-1.18.26.jar" />
         </processorPath>
         <module name="owoclient-1.19.main" />
+      </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <option name="defaultObfuscationEnv" value="named:intermediary" />
+        <option name="inMapFileNamedIntermediary" value="C:\Users\Aidan June\.gradle\caches\fabric-loom\1.19.2\net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2\mappings.tiny" />
+        <option name="outMapFileNamedIntermediary" value="F:\OwoClient\build\loom-cache\mixin-map-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.test.tiny" />
+        <option name="outRefMapFile" value="F:\OwoClient\build\classes\java\test\test-mixins.phosphor.refmap.json" />
+        <option name="quiet" value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.26/8f8cf0372abf564913e9796623aac4c8ea44025a/lombok-1.18.26.jar" />
+        </processorPath>
+        <module name="OwoClient.test" />
+      </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <option name="defaultObfuscationEnv" value="named:intermediary" />
+        <option name="inMapFileNamedIntermediary" value="C:\Users\Aidan June\.gradle\caches\fabric-loom\1.19.2\net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2\mappings.tiny" />
+        <option name="outMapFileNamedIntermediary" value="F:\OwoClient\build\loom-cache\mixin-map-net.fabricmc.yarn.1_19_2.1.19.2+build.28-v2.main.tiny" />
+        <option name="outRefMapFile" value="F:\OwoClient\build\classes\java\main\mixins.phosphor.refmap.json" />
+        <option name="quiet" value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.26/8f8cf0372abf564913e9796623aac4c8ea44025a/lombok-1.18.26.jar" />
+        </processorPath>
+        <module name="OwoClient.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17" />

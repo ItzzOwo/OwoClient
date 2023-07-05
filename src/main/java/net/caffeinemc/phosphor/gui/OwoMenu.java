@@ -2,6 +2,7 @@ package net.caffeinemc.phosphor.gui;
 
 import imgui.ImGui;
 import imgui.flag.ImGuiCol;
+import imgui.type.ImFloat;
 import lombok.Getter;
 import net.caffeinemc.phosphor.config.ConfigManager;
 import net.caffeinemc.phosphor.config.OwoConfig;
@@ -28,6 +29,7 @@ public class OwoMenu implements Renderable {
             new AutoSprintResetModule(),
             new BlockInjectorModule(),
             new GamemodeModule(),
+            new AimAssistModule(),
             new TriggerModule(),
             new OwoSettingsModule()
     );
@@ -95,6 +97,7 @@ public class OwoMenu implements Renderable {
             if (module instanceof ToggleableModule toggleableModule) {
                 ImGui.checkbox(toggleableModule.getToggleText(), toggleableModule.getToggle(config()));
             }
+
             if (ImGui.collapsingHeader(Util.getHeader(module))) {
                 if (module instanceof BindableModule bindableModule) {
                     String text = bindableModule.isEqual(listeningModule.get()) ? "Press a key..." : Util.getKey(bindableModule.getKeybinding(config()));
@@ -114,6 +117,7 @@ public class OwoMenu implements Renderable {
 
         ImGui.end();
     }
+
 
     @Override
     public Theme getTheme() {

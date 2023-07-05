@@ -10,6 +10,7 @@
     "SprintResetMixin",
     "TriggerBotMixin",
     "GamemodeMixin",
+    "AimAssistMixin",
     "block.MixinAbstractBlockState",
     "block.MixinShapeCache",
     "chunk.MixinChunkNibbleArray",
