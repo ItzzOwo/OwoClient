@@ -12,9 +12,7 @@ import net.caffeinemc.phosphor.gui.module.ToggleableModule;
 import net.caffeinemc.phosphor.gui.module.RenderableModule;
 import net.caffeinemc.phosphor.modules.*;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -24,7 +22,6 @@ public class OwoMenu implements Renderable {
     private static final ConfigManager<OwoConfig> manager = ConfigManager.create(OwoConfig.class, "owo");
     private static final AtomicBoolean clientEnabled = new AtomicBoolean(true);
     private static final AtomicReference<BindableModule> listeningModule = new AtomicReference<>(null);
-
 
     @Getter
     private static final List<BaseModule> modules = List.of(
@@ -36,6 +33,7 @@ public class OwoMenu implements Renderable {
             new AimAssistModule(),
             new BlockInjectorModule(),
             new GamemodeModule(),
+            new AimAssistModule(),
             new TriggerModule(),
             new OwoSettingsModule()
     );
@@ -94,57 +92,31 @@ public class OwoMenu implements Renderable {
         ImGui.text("Welcome to Owo client!");
         ImGui.separator();
 
-        // Create a set to store unique tab names
-        Set<String> uniqueTabNames = new HashSet<>();
-
-        // Iterate over the modules to collect unique tab names
         for (BaseModule module : modules) {
-            String tabName = module.getTabName();
-            uniqueTabNames.add(tabName);
-        }
-
-        // Begin the tab bar
-        if (ImGui.beginTabBar("tabs")) {
-            // Iterate over the unique tab names
-            for (String tabName : uniqueTabNames) {
-                // Start a tab with the tab name
-                if (ImGui.beginTabItem(tabName)) {
-                    // Iterate over the modules and check if their tab name matches the current tab
-                    for (BaseModule module : modules) {
-                        if (module.getTabName().equals(tabName)) {
-                            if (Util.isSimpleModule(module) && module instanceof ToggleableModule toggleableModule) {
-                                ImGui.checkbox(module.getName(), toggleableModule.getToggle(config()));
-                                continue;
-                            }
-
-                            if (module instanceof ToggleableModule toggleableModule) {
-                                ImGui.checkbox(toggleableModule.getToggleText(), toggleableModule.getToggle(config()));
-                            }
-
-                            if (ImGui.collapsingHeader(Util.getHeader(module))) {
-                                if (module instanceof BindableModule bindableModule) {
-                                    String text = bindableModule.isEqual(listeningModule.get()) ? "Press a key..." : Util.getKey(bindableModule.getKeybinding(config()));
-                                    if (ImGui.button(text)) {
-                                        listeningModule.set(bindableModule);
-                                    }
-                                    ImGui.sameLine();
-                                    ImGui.text(bindableModule.getKeybindingText());
-                                }
-
-                                if (module instanceof RenderableModule renderableModule) {
-                                    renderableModule.render(config());
-                                }
-                                ImGui.separator();
-                            }
-                        }
-                    }
-
-                    ImGui.endTabItem();
-                }
+            if (Util.isSimpleModule(module) && module instanceof ToggleableModule toggleableModule) {
+                ImGui.checkbox(module.getName(), toggleableModule.getToggle(config()));
+                continue;
             }
 
-            // End the tab bar
-            ImGui.endTabBar();
+            if (module instanceof ToggleableModule toggleableModule) {
+                ImGui.checkbox(toggleableModule.getToggleText(), toggleableModule.getToggle(config()));
+            }
+
+            if (ImGui.collapsingHeader(Util.getHeader(module))) {
+                if (module instanceof BindableModule bindableModule) {
+                    String text = bindableModule.isEqual(listeningModule.get()) ? "Press a key..." : Util.getKey(bindableModule.getKeybinding(config()));
+                    if (ImGui.button(text)) {
+                        listeningModule.set(bindableModule);
+                    }
+                    ImGui.sameLine();
+                    ImGui.text(bindableModule.getKeybindingText());
+                }
+
+                if (module instanceof RenderableModule renderableModule) {
+                    renderableModule.render(config());
+                }
+                ImGui.separator();
+            }
         }
 
         ImGui.end();
