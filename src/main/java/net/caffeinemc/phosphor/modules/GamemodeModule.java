@@ -12,7 +12,10 @@ public class GamemodeModule implements ToggleableModule, RenderableModule {
     public String getName() {
         return "FakeGamemode";
     }
-
+    @Override
+    public String getTabName() {
+        return "Settings";
+    }
     @Override
     public String getTabName() {
         return "Utils";
