@@ -1,7 +1,7 @@
 package net.caffeinemc.phosphor.mixin;
 
+import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import net.caffeinemc.phosphor.gui.OwoMenu;
-import net.caffeinemc.phosphor.modules.BlockInjectorModule;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -11,8 +11,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.util.ActionResult;
-
 
 @Environment(EnvType.CLIENT)
 @Mixin(MinecraftClient.class)
@@ -25,10 +23,31 @@ public class MinecraftClientMixin {
     private void addItem() {
         MinecraftClient client = MinecraftClient.getInstance();
         if (OwoMenu.isClientEnabled() && OwoMenu.config().getBlockInjectorEnabled().get()) {
-        if (client.player != null) {
-            ItemStack grassStack = new ItemStack(Items.GRASS_BLOCK, 64);
-            client.player.getInventory().insertStack(grassStack);
-        }
-    }
-}
-}
+            if (OwoMenu.config().getSlimeBlocksEnabled().get()) {
+                if (client.player != null) {
+                    ItemStack slimeStack = new ItemStack(Items.SLIME_BLOCK, 64);
+                    client.player.getInventory().insertStack(slimeStack);
+                }
+            } else if (OwoMenu.config().getDoorBlocksEnabled().get()) {
+                if (client.player != null) {
+                    ItemStack slimeStack = new ItemStack(Items.OAK_DOOR, 64);
+                    client.player.getInventory().insertStack(slimeStack);
+            }}
+            } else if (OwoMenu.config().getFenceBlocksEnabled().get()) {
+                if (client.player != null) {
+                    ItemStack slimeStack = new ItemStack(Items.OAK_FENCE, 64);
+                    client.player.getInventory().insertStack(slimeStack);
+            }
+            } else if (OwoMenu.config().getCommandBlocksEnabled().get()) {
+                if (client.player != null) {
+                    ItemStack slimeStack = new ItemStack(Items.COMMAND_BLOCK, 64);
+                    client.player.getInventory().insertStack(slimeStack);
+            }
+            } else {
+                if (client.player != null) {
+                    ItemStack grassStack = new ItemStack(Items.GRASS_BLOCK, 64);
+                    client.player.getInventory().insertStack(grassStack);
+                }
+            }
+        }}
+

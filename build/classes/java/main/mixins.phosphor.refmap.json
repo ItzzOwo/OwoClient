@@ -1,9 +1,18 @@
 {
   "mappings": {
+    "net/caffeinemc/phosphor/mixin/AimAssistMixin": {
+      "render": "Lnet/minecraft/class_310;method_1523(Z)V"
+    },
     "net/caffeinemc/phosphor/mixin/ClientPlayerInteractionManagerAccessor": {
       "syncSelectedSlot": "method_2911()V"
     },
     "net/caffeinemc/phosphor/mixin/ClientWorldMixin": {
+      "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
+    },
+    "net/caffeinemc/phosphor/mixin/CrashMixin": {
+      "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
+    },
+    "net/caffeinemc/phosphor/mixin/FocusMixin": {
       "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
     },
     "net/caffeinemc/phosphor/mixin/GamemodeMixin": {
@@ -66,10 +75,19 @@
   },
   "data": {
     "named:intermediary": {
+      "net/caffeinemc/phosphor/mixin/AimAssistMixin": {
+        "render": "Lnet/minecraft/class_310;method_1523(Z)V"
+      },
       "net/caffeinemc/phosphor/mixin/ClientPlayerInteractionManagerAccessor": {
         "syncSelectedSlot": "method_2911()V"
       },
       "net/caffeinemc/phosphor/mixin/ClientWorldMixin": {
+        "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
+      },
+      "net/caffeinemc/phosphor/mixin/CrashMixin": {
+        "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
+      },
+      "net/caffeinemc/phosphor/mixin/FocusMixin": {
         "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
       },
       "net/caffeinemc/phosphor/mixin/GamemodeMixin": {
