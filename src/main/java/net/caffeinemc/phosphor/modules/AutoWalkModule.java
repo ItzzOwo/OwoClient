@@ -9,7 +9,10 @@ public class AutoWalkModule implements ToggleableModule {
     public String getName() {
         return "AutoWalk";
     }
-
+    @Override
+    public String getTabName() {
+        return "Settings";
+    }
     @Override
     public ImBoolean getToggle(OwoConfig config) {
         return config.getAutoWalkEnabled();

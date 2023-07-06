@@ -9,7 +9,10 @@ public class AutoSprintResetModule implements ToggleableModule {
     public String getName() {
         return "AutoSprintReset";
     }
-
+    @Override
+    public String getTabName() {
+        return "Combat";
+    }
     @Override
     public ImBoolean getToggle(OwoConfig config) {
         return config.getAutoSprintResetEnabled();

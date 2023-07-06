@@ -10,7 +10,10 @@ public class ForceCrashModule implements ToggleableModule {
     public String getName() {
         return "ForceCrash";
     }
-
+    @Override
+    public String getTabName() {
+        return "Settings";
+    }
     @Override
     public ImBoolean getToggle(OwoConfig config) {
         return config.getForceCrashEnabled();

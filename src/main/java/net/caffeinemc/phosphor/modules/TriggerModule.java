@@ -27,7 +27,10 @@ public class TriggerModule implements BindableModule, RenderableModule, Toggleab
     public String getName() {
         return "TriggerBot";
     }
-
+    @Override
+    public String getTabName() {
+        return "Combat";
+    }
     @Override
     public void render(OwoConfig config) {
         ImGui.checkbox("Permanent Trigger", config.getPermTriggerEnabled());

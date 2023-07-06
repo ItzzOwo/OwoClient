@@ -15,6 +15,10 @@ public class AimAssistModule implements ToggleableModule, RenderableModule, Bind
         return "Aim Assist";
     }
     @Override
+    public String getTabName() {
+        return "Combat";
+    }
+    @Override
     public int getKeybinding(OwoConfig config) {
         return config.getAimassistKeybinding();
     }

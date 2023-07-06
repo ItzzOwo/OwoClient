@@ -9,7 +9,10 @@ public class AutoJumpResetModule implements ToggleableModule {
     public String getName() {
         return "AutoJumpReset";
     }
-
+    @Override
+    public String getTabName() {
+        return "Combat";
+    }
     @Override
     public ImBoolean getToggle(OwoConfig config) {
         return config.getAutoJumpResetEnabled();

@@ -10,7 +10,10 @@ public class BlockInjectorModule implements ToggleableModule {
     public String getName() {
         return "BlockInjector";
     }
-
+    @Override
+    public String getTabName() {
+        return "Settings";
+    }
     @Override
     public ImBoolean getToggle(OwoConfig config) {
         return config.getBlockInjectorEnabled();

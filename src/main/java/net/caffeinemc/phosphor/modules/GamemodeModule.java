@@ -10,7 +10,10 @@ public class GamemodeModule implements ToggleableModule {
     public String getName() {
         return "FakeGamemode";
     }
-
+    @Override
+    public String getTabName() {
+        return "Settings";
+    }
     @Override
     public ImBoolean getToggle(OwoConfig config) {
         return config.getGameModeEnabled();

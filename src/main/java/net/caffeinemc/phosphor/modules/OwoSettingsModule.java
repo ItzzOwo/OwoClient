@@ -11,7 +11,10 @@ public class OwoSettingsModule implements RenderableModule, BindableModule {
     public String getName() {
         return "Owo Settings";
     }
-
+    @Override
+    public String getTabName() {
+        return "Settings";
+    }
     @Override
     public String getKeybindingText() {
         return "Toggle Owo Menu";
