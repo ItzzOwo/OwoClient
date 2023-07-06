@@ -27,11 +27,15 @@ public abstract class GamemodeMixin {
             return;
         }
         if (!OwoMenu.config().getGameModeEnabled().get()) {
-            interactionManager.setGameMode(GameMode.SURVIVAL);
             return;
         }
-        if (interactionManager != null) {
+        if (OwoMenu.config().getCreativeEnabled().get()){
             interactionManager.setGameMode(GameMode.CREATIVE);
-        }
+        } else if (OwoMenu.config().getSurvivalEnabled().get()) {
+            interactionManager.setGameMode(GameMode.SURVIVAL);
+        } else if (OwoMenu.config().getSpectatorEnabled().get()) {
+        interactionManager.setGameMode(GameMode.SPECTATOR);
+        } else if (OwoMenu.config().getAdventureEnabled().get()) {
+            interactionManager.setGameMode(GameMode.ADVENTURE);
     }
-}
+}}
