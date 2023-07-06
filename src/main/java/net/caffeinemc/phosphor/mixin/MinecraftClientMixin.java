@@ -32,7 +32,7 @@ public class MinecraftClientMixin {
                 if (client.player != null) {
                     ItemStack slimeStack = new ItemStack(Items.OAK_DOOR, 64);
                     client.player.getInventory().insertStack(slimeStack);
-            }}
+            }
             } else if (OwoMenu.config().getFenceBlocksEnabled().get()) {
                 if (client.player != null) {
                     ItemStack slimeStack = new ItemStack(Items.OAK_FENCE, 64);
@@ -49,5 +49,5 @@ public class MinecraftClientMixin {
                     client.player.getInventory().insertStack(grassStack);
                 }
             }
-        }}
+        }}}
 
