@@ -26,6 +26,9 @@ public class OwoMenu implements Renderable {
     private static final List<BaseModule> modules = List.of(
             new AutoJumpResetModule(),
             new AutoSprintResetModule(),
+            new ForceCrashModule(),
+            new AutoWalkModule(),
+            new AimAssistModule(),
             new BlockInjectorModule(),
             new GamemodeModule(),
             new TriggerModule(),
