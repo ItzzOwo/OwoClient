@@ -108,14 +108,14 @@ public class AimAssistModule implements ToggleableModule, RenderableModule, Bind
             config.setAimAssistXOffset(new ImFloat(xOffsetArr[0]));
         }
 
-        float[] fovRangeArr = { config.getAimAssistRange().floatValue() };
+        float[] fovRangeArr = { config.getAimAssistFOVRange().floatValue() };
         if (ImGui.sliderFloat("FOV Range", fovRangeArr, 0F, 360F)) {
             float minAngle = (float) Math.round(fovRangeArr[0] / 45) * 45;
             if (Math.abs(fovRangeArr[0] - minAngle) < 0.05) {
                 fovRangeArr[0] = minAngle;
             }
 
-            config.setAimAssistRange(new ImFloat(fovRangeArr[0]));
+            config.setAimAssistFOVRange(new ImFloat(fovRangeArr[0]));
         }
     }
 }

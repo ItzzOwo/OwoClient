@@ -14,15 +14,20 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import java.security.SecureRandom;
 
 @Environment(EnvType.CLIENT)
 @Mixin(MinecraftClient.class)
 public abstract class AimAssistMixin {
-    private float SMOOTHNESS = OwoMenu.config().getAimAssistSmoothness()[0].floatValue();
+    private float SMOOTHNESS = 1f;
+    private float yMultiplier = 1f;
+    private float xMultiplier = 1f;
     private float Y_OFFSET = OwoMenu.config().getAimAssistYOffset().floatValue();
     private float X_OFFSET = OwoMenu.config().getAimAssistXOffset().floatValue();
-    private float FOV_RANGE = OwoMenu.config().getAimAssistRange().floatValue();
-    private float MAX_DISTANCE = OwoMenu.config().getAimAssistRange().floatValue();
+    private float FOV_RANGE = OwoMenu.config().getAimAssistFOVRange().floatValue();
+    SecureRandom random = new SecureRandom();
+    private LivingEntity lockedTarget;
+    private long lockExpirationTime;
     @Inject(method = "render", at = @At("HEAD"))
     private void onRender(boolean tick, CallbackInfo ci) {
         if (!OwoMenu.config().getAimAssistEnabled().get()) {
@@ -30,16 +35,32 @@ public abstract class AimAssistMixin {
         }
 
         MinecraftClient mc = MinecraftClient.getInstance();
-        if (mc.currentScreen instanceof HandledScreen) {
+        if (mc.player == null || mc.interactionManager == null || mc.currentScreen instanceof HandledScreen || !OwoMenu.isClientEnabled()) {
             return;
         }
 
-        SMOOTHNESS = OwoMenu.config().getAimAssistSmoothness()[0].floatValue();
+        float SMOOTHNESSMinValue = OwoMenu.config().getAimAssistSmoothness()[0].floatValue();
+        float SMOOTHNESSMaxValue = OwoMenu.config().getAimAssistSmoothness()[1].floatValue();
+        SMOOTHNESS = SMOOTHNESSMinValue + random.nextFloat() * (SMOOTHNESSMaxValue - SMOOTHNESSMinValue);
+
+        float yMultiplierMinValue = OwoMenu.config().getAimAssistYMultiplier()[0].floatValue();
+        float yMultiplierMaxValue = OwoMenu.config().getAimAssistYMultiplier()[1].floatValue();
+        yMultiplier = yMultiplierMinValue + random.nextFloat() * (yMultiplierMaxValue - yMultiplierMinValue);
+
+        float xMultiplierMinValue = OwoMenu.config().getAimAssistXMultiplier()[0].floatValue();
+        float xMultiplierMaxValue = OwoMenu.config().getAimAssistXMultiplier()[1].floatValue();
+        xMultiplier = xMultiplierMinValue + random.nextFloat() * (xMultiplierMaxValue - xMultiplierMinValue);
+
         Y_OFFSET = OwoMenu.config().getAimAssistYOffset().floatValue();
         X_OFFSET = OwoMenu.config().getAimAssistXOffset().floatValue();
-        FOV_RANGE = OwoMenu.config().getAimAssistRange().floatValue();
-        MAX_DISTANCE = OwoMenu.config().getAimAssistRange().floatValue();
+        FOV_RANGE = OwoMenu.config().getAimAssistFOVRange().floatValue();
         Entity target = getClosestEntity(mc);
+
+        if (OwoMenu.config().getAimAssistPlayersOnly().get()) {
+            if (!(target instanceof PlayerEntity)) {
+                return;
+            }
+        }
 
         float yaw = mc.player.getYaw();
         float pitch = mc.player.getPitch();
@@ -52,20 +73,23 @@ public abstract class AimAssistMixin {
             float pitchDifference = MathHelper.wrapDegrees(targetPitch - pitch);
 
             // Apply smoothing
-            yaw += (yawDifference / (SMOOTHNESS * 30)) + Y_OFFSET;
-            pitch += (pitchDifference / (SMOOTHNESS * 30)) + X_OFFSET;
+            yaw += ((yawDifference / (SMOOTHNESS * 30)) + Y_OFFSET) * xMultiplier;
+            pitch += ((pitchDifference / (SMOOTHNESS * 30)) + X_OFFSET) * yMultiplier;
         }
+
 
         mc.player.setYaw(yaw);
         mc.player.setPitch(pitch);
     }
 
     public Entity getClosestEntity(MinecraftClient client) {
+        float DISTANCE = 3.5f;
+
         Vec3d playerPos = client.player.getPos();
         Vec3d playerEyesPos = playerPos.add(0, client.player.getEyeHeight(client.player.getPose()), 0);
         Vec3d lookVec = client.player.getRotationVec(1.0F);
 
-        double closestDistance = MAX_DISTANCE;
+        double closestDistance = DISTANCE;
         Entity closestEntity = null;
 
         for (Entity entity : client.world.getEntities()) {
@@ -73,7 +97,7 @@ public abstract class AimAssistMixin {
                 Vec3d entityPos = entity.getPos();
                 double distance = playerEyesPos.distanceTo(entityPos);
 
-                if (distance <= MAX_DISTANCE) {
+                if (distance <= DISTANCE) {
                     double angle = Math.toDegrees(lookVec.normalize().dotProduct(entityPos.subtract(playerEyesPos).normalize()));
                     if (angle > FOV_RANGE) {
                         continue; // Entity is outside the field of view
