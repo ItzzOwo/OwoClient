@@ -1,4 +1,4 @@
-# Owo Client - A client featuring AutoJumpReset, AutoSprintReset, TriggerBot, FakeGamemodeCreative and a Block Injector.
+# Owo Client - A client featuring AutoJumpReset, AutoSprintReset, TriggerBot, FakeGamemode, AimAssist and much more.
 
 A fabric hacked client with a built in GUI, randomization, chance, self-destruct, hider and disguised as Phosphor mod. Other modules might be added in the future.
 
