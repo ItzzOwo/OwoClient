@@ -12,10 +12,12 @@ public class GamemodeModule implements ToggleableModule, RenderableModule {
     public String getName() {
         return "FakeGamemode";
     }
+
     @Override
     public String getTabName() {
-        return "Settings";
+        return "Utils";
     }
+
     @Override
     public ImBoolean getToggle(OwoConfig config) {
         return config.getGameModeEnabled();
@@ -23,13 +25,9 @@ public class GamemodeModule implements ToggleableModule, RenderableModule {
 
     @Override
     public void render(OwoConfig config) {
-    ImGui.checkbox("Survival", config.getSurvivalEnabled());
-    ImGui.checkbox("Creative", config.getCreativeEnabled());
-    ImGui.checkbox("Spectator", config.getSpectatorEnabled());
-    ImGui.checkbox("Adventure", config.getAdventureEnabled());
-
-}}
-
-
-
-
+        ImGui.checkbox("Survival", config.getSurvivalEnabled());
+        ImGui.checkbox("Creative", config.getCreativeEnabled());
+        ImGui.checkbox("Spectator", config.getSpectatorEnabled());
+        ImGui.checkbox("Adventure", config.getAdventureEnabled());
+    }
+}

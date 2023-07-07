@@ -25,18 +25,16 @@ public class OwoMenu implements Renderable {
     private static final AtomicBoolean clientEnabled = new AtomicBoolean(true);
     private static final AtomicReference<BindableModule> listeningModule = new AtomicReference<>(null);
 
+
     @Getter
     private static final List<BaseModule> modules = List.of(
             new AutoJumpResetModule(),
-            new ForceCrashModule(),
-            new AutoWalkModule(),
             new AutoSprintResetModule(),
             new ForceCrashModule(),
             new AutoWalkModule(),
             new AimAssistModule(),
             new BlockInjectorModule(),
             new GamemodeModule(),
-            new AimAssistModule(),
             new TriggerModule(),
             new OwoSettingsModule()
     );

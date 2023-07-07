@@ -14,7 +14,7 @@ public class BlockInjectorModule implements ToggleableModule, RenderableModule {
     }
     @Override
     public String getTabName() {
-        return "Settings";
+        return "Utils";
     }
     @Override
     public ImBoolean getToggle(OwoConfig config) {

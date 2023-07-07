@@ -30,13 +30,36 @@ public class OwoConfig {
     private ImBoolean triggerEnabled = new ImBoolean(false);
     private ImBoolean permTriggerEnabled = new ImBoolean(true);
     private ImBoolean triggerWeaponOnly = new ImBoolean( true);
-    private ImFloat aimAssistSmoothness = new ImFloat(1F);
+    private ImFloat[] aimAssistSmooth = { new ImFloat(2.0F), new ImFloat(2.0F) };
+    private ImFloat[] aimAssistYMultiplier = { new ImFloat(0.9F), new ImFloat(1.0F) };
+    private ImFloat[] aimAssistXMultiplier = { new ImFloat(0.9F), new ImFloat(1.0F) };
     private ImFloat aimAssistYOffset = new ImFloat(0F);
     private ImFloat aimAssistXOffset = new ImFloat(0F);
-    private ImFloat aimAssistFOVRange = new ImFloat(360F);
-    private ImFloat aimAssistRange = new ImFloat(3.5F);
+    private ImFloat aimAssistFOVRange = new ImFloat(120F);
     private ImBoolean aimAssistEnabled = new ImBoolean(false);
+    private ImBoolean aimAssistPlayersOnly = new ImBoolean(false);
     private int triggerKeybinding = GLFW.GLFW_KEY_X;
     private int visibilityKeybinding = GLFW.GLFW_KEY_F8;
     private int AimassistKeybinding = GLFW.GLFW_KEY_U;
+    public ImFloat[] getAimAssistYMultiplier() {
+        return aimAssistYMultiplier;
+    }
+
+    public void setAimAssistYMultiplier(ImFloat[] YMultiplier) {
+        this.aimAssistYMultiplier = YMultiplier;
+    }
+    public ImFloat[] getAimAssistXMultiplier() {
+        return aimAssistXMultiplier;
+    }
+
+    public void setAimAssistXMultiplier(ImFloat[] XMultiplier) {
+        this.aimAssistXMultiplier = XMultiplier;
+    }
+    public ImFloat[] getAimAssistSmoothness() {
+        return aimAssistSmooth;
+    }
+
+    public void setAimAssistSmoothness(ImFloat[] aimAssistSmoothness) {
+        this.aimAssistSmooth = aimAssistSmoothness;
+    }
 }

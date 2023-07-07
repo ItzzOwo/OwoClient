@@ -56,6 +56,6 @@ public class OwoSettingsModule implements RenderableModule, BindableModule {
             OwoMenu.toggleVisibility();
         }
 
-        }
     }
+}
 

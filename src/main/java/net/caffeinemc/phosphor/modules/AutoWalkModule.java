@@ -11,7 +11,7 @@ public class AutoWalkModule implements ToggleableModule {
     }
     @Override
     public String getTabName() {
-        return "Settings";
+        return "Movement";
     }
     @Override
     public ImBoolean getToggle(OwoConfig config) {
