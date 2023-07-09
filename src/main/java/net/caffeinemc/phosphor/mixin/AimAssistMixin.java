@@ -18,10 +18,10 @@ import net.minecraft.util.math.Vec3d;
 @Environment(EnvType.CLIENT)
 @Mixin(MinecraftClient.class)
 public abstract class AimAssistMixin {
-    private float SMOOTHNESS = OwoMenu.config().getAimAssistSmoothness().floatValue();
+    private float SMOOTHNESS = OwoMenu.config().getAimAssistSmoothness()[0].floatValue();
     private float Y_OFFSET = OwoMenu.config().getAimAssistYOffset().floatValue();
     private float X_OFFSET = OwoMenu.config().getAimAssistXOffset().floatValue();
-    private float FOV_RANGE = OwoMenu.config().getAimAssistFOVRange().floatValue();
+    private float FOV_RANGE = OwoMenu.config().getAimAssistRange().floatValue();
     private float MAX_DISTANCE = OwoMenu.config().getAimAssistRange().floatValue();
     @Inject(method = "render", at = @At("HEAD"))
     private void onRender(boolean tick, CallbackInfo ci) {
@@ -34,10 +34,10 @@ public abstract class AimAssistMixin {
             return;
         }
 
-        SMOOTHNESS = OwoMenu.config().getAimAssistSmoothness().floatValue();
+        SMOOTHNESS = OwoMenu.config().getAimAssistSmoothness()[0].floatValue();
         Y_OFFSET = OwoMenu.config().getAimAssistYOffset().floatValue();
         X_OFFSET = OwoMenu.config().getAimAssistXOffset().floatValue();
-        FOV_RANGE = OwoMenu.config().getAimAssistFOVRange().floatValue();
+        FOV_RANGE = OwoMenu.config().getAimAssistRange().floatValue();
         MAX_DISTANCE = OwoMenu.config().getAimAssistRange().floatValue();
         Entity target = getClosestEntity(mc);
 
