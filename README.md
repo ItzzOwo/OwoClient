@@ -18,6 +18,11 @@ To add:
 - AutoSpacing
 - AutoEat/AutoGap
 - AutoWater/lava
+- AutoShieldDisable
+- AutoTotem
+- CrystalOptimizer
+- AutoCrystal
+- AutoAnchor
 
 ![App Screenshot](https://media.discordapp.net/attachments/1078510402377359380/1127419310760001607/image.png?width=444&height=671)
 
