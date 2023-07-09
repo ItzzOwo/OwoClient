@@ -20,7 +20,9 @@ public class OwoConfig {
     private ImBoolean blockInjectorEnabled = new ImBoolean(false);
     private ImBoolean SlimeBlocksEnabled = new ImBoolean(false);
     private ImBoolean DoorBlocksEnabled = new ImBoolean(false);
+    private ImBoolean CobblestoneBlocksEnabled = new ImBoolean(false);
     private ImBoolean FenceBlocksEnabled = new ImBoolean(false);
+    private ImBoolean AirBlockEnabled = new ImBoolean(false);
     private ImBoolean CommandBlocksEnabled = new ImBoolean(false);
     private ImBoolean GameModeEnabled = new ImBoolean(false);
     private ImBoolean SpectatorEnabled = new ImBoolean(false);
@@ -35,9 +37,10 @@ public class OwoConfig {
     private ImFloat[] aimAssistXMultiplier = { new ImFloat(0.9F), new ImFloat(1.0F) };
     private ImFloat aimAssistYOffset = new ImFloat(0F);
     private ImFloat aimAssistXOffset = new ImFloat(0F);
-    private ImFloat aimAssistFOVRange = new ImFloat(120F);
+    private ImFloat aimAssistRange = new ImFloat(120F);
     private ImBoolean aimAssistEnabled = new ImBoolean(false);
     private ImBoolean aimAssistPlayersOnly = new ImBoolean(false);
+    private ImBoolean ForceGhostBlock = new ImBoolean(false);
     private int triggerKeybinding = GLFW.GLFW_KEY_X;
     private int visibilityKeybinding = GLFW.GLFW_KEY_F8;
     private int AimassistKeybinding = GLFW.GLFW_KEY_U;
@@ -52,14 +55,15 @@ public class OwoConfig {
         return aimAssistXMultiplier;
     }
 
-    public void setAimAssistXMultiplier(ImFloat[] XMultiplier) {
-        this.aimAssistXMultiplier = XMultiplier;
-    }
     public ImFloat[] getAimAssistSmoothness() {
         return aimAssistSmooth;
+    }
+    public void setAimAssistXMultiplier(ImFloat[] XMultiplier) {
+        this.aimAssistXMultiplier = XMultiplier;
     }
 
     public void setAimAssistSmoothness(ImFloat[] aimAssistSmoothness) {
         this.aimAssistSmooth = aimAssistSmoothness;
     }
+
 }
