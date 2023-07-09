@@ -32,6 +32,7 @@ public class OwoMenu implements Renderable {
             new AutoSprintResetModule(),
             new ForceCrashModule(),
             new AutoWalkModule(),
+            new ForceGhostBlockModule(),
             new AimAssistModule(),
             new BlockInjectorModule(),
             new GamemodeModule(),
