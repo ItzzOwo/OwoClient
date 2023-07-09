@@ -17,10 +17,6 @@ public class AimAssistModule implements ToggleableModule, RenderableModule, Bind
         return "Aim Assist";
     }
     @Override
-    public String getTabName() {
-        return "Combat";
-    }
-    @Override
     public int getKeybinding(OwoConfig config) {
         return config.getAimassistKeybinding();
     }
@@ -108,14 +104,14 @@ public class AimAssistModule implements ToggleableModule, RenderableModule, Bind
             config.setAimAssistXOffset(new ImFloat(xOffsetArr[0]));
         }
 
-        float[] fovRangeArr = { config.getAimAssistFOVRange().floatValue() };
+        float[] fovRangeArr = { config.getAimAssistRange().floatValue() };
         if (ImGui.sliderFloat("FOV Range", fovRangeArr, 0F, 360F)) {
             float minAngle = (float) Math.round(fovRangeArr[0] / 45) * 45;
             if (Math.abs(fovRangeArr[0] - minAngle) < 0.05) {
                 fovRangeArr[0] = minAngle;
             }
 
-            config.setAimAssistFOVRange(new ImFloat(fovRangeArr[0]));
+            config.setAimAssistRange(new ImFloat(fovRangeArr[0]));
         }
     }
 }
