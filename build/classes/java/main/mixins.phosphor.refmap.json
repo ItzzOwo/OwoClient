@@ -15,6 +15,9 @@
     "net/caffeinemc/phosphor/mixin/FocusMixin": {
       "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
     },
+    "net/caffeinemc/phosphor/mixin/ForceBlockMixin": {
+      "tick": "Lnet/minecraft/class_638;method_8441(Ljava/util/function/BooleanSupplier;)V"
+    },
     "net/caffeinemc/phosphor/mixin/GamemodeMixin": {
       "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
     },
@@ -89,6 +92,9 @@
       },
       "net/caffeinemc/phosphor/mixin/FocusMixin": {
         "tickEntities": "Lnet/minecraft/class_638;method_18116()V"
+      },
+      "net/caffeinemc/phosphor/mixin/ForceBlockMixin": {
+        "tick": "Lnet/minecraft/class_638;method_8441(Ljava/util/function/BooleanSupplier;)V"
       },
       "net/caffeinemc/phosphor/mixin/GamemodeMixin": {
         "tickEntities": "Lnet/minecraft/class_638;method_18116()V"

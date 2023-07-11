@@ -8,6 +8,7 @@ import imgui.ImGuiIO;
 import imgui.ImGuiStyle;
 import imgui.flag.ImGuiCol;
 import imgui.flag.ImGuiConfigFlags;
+import imgui.flag.ImGuiKey;
 import imgui.gl3.ImGuiImplGl3;
 import imgui.glfw.ImGuiImplGlfw;
 import lombok.Getter;
@@ -18,8 +19,7 @@ import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.lwjgl.glfw.GLFW.glfwGetCurrentContext;
-import static org.lwjgl.glfw.GLFW.glfwMakeContextCurrent;
+import static org.lwjgl.glfw.GLFW.*;
 
 public class ImguiLoader {
     private static final Set<Renderable> renderstack = new HashSet<>();
@@ -67,6 +67,7 @@ public class ImguiLoader {
         io.addConfigFlags(ImGuiConfigFlags.DockingEnable);     // Enable Docking
         io.addConfigFlags(ImGuiConfigFlags.ViewportsEnable);   // Enable Multi-Viewport / Platform Windows
         io.setConfigViewportsNoTaskBarIcon(true);
+
 
         final ImFontAtlas fontAtlas = io.getFonts();
         final ImFontConfig fontConfig = new ImFontConfig(); // Natively allocated object, should be explicitly destroyed

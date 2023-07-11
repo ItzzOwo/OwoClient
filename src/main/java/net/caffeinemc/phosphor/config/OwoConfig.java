@@ -37,9 +37,11 @@ public class OwoConfig {
     private ImFloat[] aimAssistXMultiplier = { new ImFloat(0.9F), new ImFloat(1.0F) };
     private ImFloat aimAssistYOffset = new ImFloat(0F);
     private ImFloat aimAssistXOffset = new ImFloat(0F);
-    private ImFloat aimAssistRange = new ImFloat(120F);
+    private ImFloat aimAssistFOVRange = new ImFloat(120F);
+    private ImFloat aimAssistAimRange = new ImFloat(3.5F);
     private ImBoolean aimAssistEnabled = new ImBoolean(false);
     private ImBoolean aimAssistPlayersOnly = new ImBoolean(false);
+    private ImBoolean aimAssistAntiBot = new ImBoolean(false);
     private ImBoolean ForceGhostBlock = new ImBoolean(false);
     private int triggerKeybinding = GLFW.GLFW_KEY_X;
     private int visibilityKeybinding = GLFW.GLFW_KEY_F8;

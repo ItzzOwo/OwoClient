@@ -12,7 +12,10 @@ public class ForceGhostBlockModule implements ToggleableModule, RenderableModule
     public String getName() {
         return "ForceGhostBlock";
     }
-
+    @Override
+    public String getTabName() {
+        return "Utils";
+    }
     @Override
     public ImBoolean getToggle(OwoConfig config) {
         return config.getForceGhostBlock();
