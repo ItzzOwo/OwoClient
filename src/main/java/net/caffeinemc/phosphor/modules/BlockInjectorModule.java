@@ -12,10 +12,23 @@ public class BlockInjectorModule implements ToggleableModule, RenderableModule {
     public String getName() {
         return "BlockInjector";
     }
-
+    @Override
+    public String getTabName() {
+        return "Utils";
+    }
     @Override
     public ImBoolean getToggle(OwoConfig config) {
         return config.getBlockInjectorEnabled();
+    }
+
+    @Override
+    public void onTick() {
+
+    }
+
+    @Override
+    public String getInfo() {
+        return null;
     }
 
     @Override

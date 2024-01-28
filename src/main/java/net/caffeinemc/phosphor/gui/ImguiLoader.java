@@ -74,7 +74,7 @@ public class ImguiLoader {
         fontAtlas.addFontDefault();
         fontConfig.setGlyphRanges(fontAtlas.getGlyphRangesCyrillic());
 
-        try (InputStream is = ImguiLoader.class.getClassLoader().getResourceAsStream("JetBrainsMono-Regular.ttf")) {
+        try (InputStream is = ImguiLoader.class.getClassLoader().getResourceAsStream("Nunito.ttf")) {
             if (is != null) {
                 customFont = fontAtlas.addFontFromMemoryTTF(is.readAllBytes(), 16);
             }
@@ -92,6 +92,8 @@ public class ImguiLoader {
             style.setWindowRounding(0.0f);
             style.setColor(ImGuiCol.WindowBg, ImGui.getColorU32(ImGuiCol.WindowBg, 1));
         }
+
+        io.setDisplaySize(470, 510);
     }
 
     private static void endFrame() {

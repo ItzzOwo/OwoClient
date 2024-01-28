@@ -9,4 +9,8 @@ public non-sealed interface ToggleableModule extends BaseModule {
     default String getToggleText() {
         return getName();
     }
+
+    void onTick();
+
+    String getInfo();
 }

@@ -10,6 +10,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.security.SecureRandom;
 import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -36,7 +38,7 @@ import net.minecraft.entity.player.PlayerInventory;
 @Environment(EnvType.CLIENT)
 @Mixin(ClientWorld.class)
 public class SprintResetMixin {
-    private static final Random random = new Random();
+    private final SecureRandom secureRandom = new SecureRandom();
     private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
     @Inject(method = "tickEntities", at = @At("HEAD"))
     private void startWorldTick(CallbackInfo ci) {
@@ -59,12 +61,12 @@ public class SprintResetMixin {
         if (mc.currentScreen instanceof HandledScreen) {
             return;
         }
-        float randomValue = 0.82f + random.nextFloat() * (1.0f - 0.82f);
-        float randomDelay = 0.50f + random.nextFloat() * (0.60f - 0.40f);
+        float randomValue = 0.82f + secureRandom.nextFloat() * (1.0f - 0.82f);
+        float randomDelay = 0.50f + secureRandom.nextFloat() * (0.60f - 0.40f);
+        //requires toggle-sprint to be disabled
         if ((mc.player.isOnGround() && mc.player.getAttackCooldownProgress(randomDelay) < randomValue) || (!mc.player.isOnGround() && mc.player.getAttackCooldownProgress(randomDelay) < randomValue)) {
-            int value2 = random.nextInt(27) + 15;
+            int value2 = secureRandom.nextInt(27) + secureRandom.nextInt(secureRandom.nextInt(14,15), secureRandom.nextInt(20,21));
             executor.schedule(() -> mc.player.setSprinting(true), value2, TimeUnit.MILLISECONDS);
         }
     }
-
 }

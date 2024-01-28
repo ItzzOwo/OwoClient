@@ -1,24 +1,26 @@
 package net.caffeinemc.phosphor.modules;
 
 import imgui.ImGui;
+import imgui.flag.ImGuiSliderFlags;
 import imgui.type.ImBoolean;
+import imgui.type.ImFloat;
+import imgui.type.ImInt;
 import net.caffeinemc.phosphor.config.OwoConfig;
 import net.caffeinemc.phosphor.gui.module.RenderableModule;
 import net.caffeinemc.phosphor.gui.module.ToggleableModule;
-
-public class ForceGhostBlockModule implements ToggleableModule, RenderableModule {
+public class Criticals implements ToggleableModule, RenderableModule {
 
     @Override
     public String getName() {
-        return "ForceGhostBlock";
+        return "Criticals";
     }
     @Override
     public String getTabName() {
-        return "Utils";
+        return "Combat";
     }
     @Override
     public ImBoolean getToggle(OwoConfig config) {
-        return config.getForceGhostBlock();
+        return config.getCriticalsEnabled();
     }
 
     @Override
@@ -31,15 +33,11 @@ public class ForceGhostBlockModule implements ToggleableModule, RenderableModule
         return null;
     }
 
-    @Override
     public void render(OwoConfig config) {
-        ImGui.checkbox("Slime", config.getSlimeBlocksEnabled());
-        ImGui.checkbox("Cobblestone", config.getCobblestoneBlocksEnabled());
-        ImGui.checkbox("Fence", config.getFenceBlocksEnabled());
-        ImGui.checkbox("Command Block", config.getCommandBlocksEnabled());
-        ImGui.checkbox("Air", config.getAirBlockEnabled());
+        ImGui.checkbox("P-Crit", config.getCriticalsPCrit());
+        int[] sliderArr = { config.getCriticalsChance().intValue()  };
+        if (ImGui.sliderInt("Crit Chance", sliderArr, 0, 100)) {
+            config.setCriticalsChance(new ImInt(sliderArr[0]));
+        }
     }
 }
-
-
-

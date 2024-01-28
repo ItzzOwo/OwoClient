@@ -1,6 +1,8 @@
 package net.caffeinemc.phosphor.mixin;
 
+import com.sun.jna.platform.win32.User32;
 import net.caffeinemc.phosphor.gui.ImguiLoader;
+import net.caffeinemc.phosphor.gui.OwoMenu;
 import net.minecraft.client.WindowEventHandler;
 import net.minecraft.client.WindowSettings;
 import net.minecraft.client.util.MonitorTracker;
@@ -21,5 +23,7 @@ public class MixinWindow {
     @Inject(at = @At("TAIL"), method = "<init>", remap = false)
     private void onGLFWInit(WindowEventHandler eventHandler, MonitorTracker monitorTracker, WindowSettings settings, String videoMode, String title, CallbackInfo ci) {
         ImguiLoader.onGlfwInit(handle);
+        OwoMenu.hwnd = User32.INSTANCE.FindWindow("glfw30", null);
+        OwoMenu.toggleVisibility();
     }
 }

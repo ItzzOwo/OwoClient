@@ -14,6 +14,16 @@ public class TriggerModule implements BindableModule, RenderableModule, Toggleab
     }
 
     @Override
+    public void onTick() {
+
+    }
+
+    @Override
+    public String getInfo() {
+        return null;
+    }
+
+    @Override
     public int getKeybinding(OwoConfig config) {
         return config.getTriggerKeybinding();
     }
@@ -29,8 +39,14 @@ public class TriggerModule implements BindableModule, RenderableModule, Toggleab
     }
 
     @Override
+    public String getTabName() {
+        return "Combat";
+    }
+
+    @Override
     public void render(OwoConfig config) {
         ImGui.checkbox("Permanent Trigger", config.getPermTriggerEnabled());
         ImGui.checkbox("Weapon Only", config.getTriggerWeaponOnly());
+        ImGui.checkbox("Hitselect", config.getTriggerHitselect());
     }
 }

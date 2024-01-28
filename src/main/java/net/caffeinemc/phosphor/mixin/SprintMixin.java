@@ -10,6 +10,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.security.SecureRandom;
 import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -18,8 +20,9 @@ import java.util.concurrent.TimeUnit;
 @Environment(EnvType.CLIENT)
 @Mixin(ClientWorld.class)
 public class SprintMixin {
-    private static final Random random = new Random();
+    private final SecureRandom secureRandom = new SecureRandom();
     private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+
     @Inject(method = "tickEntities", at = @At("HEAD"))
     private void startWorldTick(CallbackInfo ci) {
         MinecraftClient mc = MinecraftClient.getInstance();
@@ -48,9 +51,8 @@ public class SprintMixin {
             return;
         }
         if (mc.player.hurtTime == mc.player.maxHurtTime - 1) {
-            int value2 = random.nextInt(30) + 40;
+            int value2 = secureRandom.nextInt(30) + secureRandom.nextInt(secureRandom.nextInt(39, 40), secureRandom.nextInt(45, 46));
             executor.schedule(() -> mc.player.setSprinting(true), value2, TimeUnit.MILLISECONDS);
-            }
         }
-
     }
+}

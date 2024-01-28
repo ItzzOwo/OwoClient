@@ -17,6 +17,10 @@ public class AimAssistModule implements ToggleableModule, RenderableModule, Bind
         return "Aim Assist";
     }
     @Override
+    public String getTabName() {
+        return "Combat";
+    }
+    @Override
     public int getKeybinding(OwoConfig config) {
         return config.getAimassistKeybinding();
     }
@@ -29,58 +33,54 @@ public class AimAssistModule implements ToggleableModule, RenderableModule, Bind
     public ImBoolean getToggle(OwoConfig config) {
         return config.getAimAssistEnabled();
     }
+
+    @Override
+    public void onTick() {
+
+    }
+
+    @Override
+    public String getInfo() {
+        return null;
+    }
+
     public void render(OwoConfig config) {
         ImGui.checkbox("Players Only", config.getAimAssistPlayersOnly());
 
-        float[] smoothnessArr = { config.getAimAssistSmoothness()[0].floatValue(), config.getAimAssistSmoothness()[1].floatValue()  };
+        float[] smoothnessArr = { config.getAimAssistSmooth().floatValue() };
         float smoothnessMinValue = 1F;
         float smoothnessMaxValue = 2F;
-        if (ImGui.sliderFloat2("Smoothness", smoothnessArr, smoothnessMinValue, smoothnessMaxValue, "%.3f", ImGuiSliderFlags.AlwaysClamp)) {
-            smoothnessArr[0] = Math.min(smoothnessArr[0], smoothnessArr[1]);
-            smoothnessArr[1] = Math.max(smoothnessArr[1], smoothnessArr[0]);
+        if (ImGui.sliderFloat("Smoothness", smoothnessArr, smoothnessMinValue, smoothnessMaxValue, "%.3f", ImGuiSliderFlags.AlwaysClamp)) {
 
             if (Math.abs(smoothnessArr[0] - 1.000) < 0.050) {
                 smoothnessArr[0] = 1.000f;
             }
-            if (Math.abs(smoothnessArr[1] - 1.000) < 0.050) {
-                smoothnessArr[1] = 1.000f;
-            }
 
-            config.setAimAssistSmoothness(new ImFloat[] { new ImFloat(smoothnessArr[0]), new ImFloat(smoothnessArr[1]) });
+            config.setAimAssistSmooth(new ImFloat(smoothnessArr[0]));
         }
 
-        float[] yMultiplierArr = { config.getAimAssistYMultiplier()[0].floatValue(), config.getAimAssistYMultiplier()[1].floatValue()  };
+        float[] yMultiplierArr = { config.getAimAssistYMultiplier().floatValue()  };
         float yMultiplierMinValue = 0F;
         float yMultiplierMaxValue = 1.2F;
-        if (ImGui.sliderFloat2("Y Multiplier", yMultiplierArr, yMultiplierMinValue, yMultiplierMaxValue, "%.3f", ImGuiSliderFlags.AlwaysClamp)) {
-            yMultiplierArr[0] = Math.min(yMultiplierArr[0], yMultiplierArr[1]);
-            yMultiplierArr[1] = Math.max(yMultiplierArr[1], yMultiplierArr[0]);
+        if (ImGui.sliderFloat("Y Multiplier", yMultiplierArr, yMultiplierMinValue, yMultiplierMaxValue, "%.3f", ImGuiSliderFlags.AlwaysClamp)) {
 
-            if (Math.abs(yMultiplierArr[0] - 1.000) < 0.050) {
-                yMultiplierArr[0] = 1.000f;
-            }
-            if (Math.abs(yMultiplierArr[1] - 1.000) < 0.050) {
-                yMultiplierArr[1] = 1.000f;
+            if (Math.abs(yMultiplierArr[0] - 0) < 0.050) {
+                yMultiplierArr[0] = 0f;
             }
 
-            config.setAimAssistYMultiplier(new ImFloat[] { new ImFloat(yMultiplierArr[0]), new ImFloat(yMultiplierArr[1]) });
+            config.setAimAssistYMultiplier(new ImFloat(yMultiplierArr[0]));
         }
 
-        float[] xMultiplierArr = { config.getAimAssistXMultiplier()[0].floatValue(), config.getAimAssistXMultiplier()[1].floatValue()  };
+        float[] xMultiplierArr = { config.getAimAssistXMultiplier().floatValue()  };
         float xMultiplierMinValue = 0F;
         float xMultiplierMaxValue = 1.2F;
-        if (ImGui.sliderFloat2("X Multiplier", xMultiplierArr, xMultiplierMinValue, xMultiplierMaxValue, "%.3f", ImGuiSliderFlags.AlwaysClamp)) {
-            xMultiplierArr[0] = Math.min(xMultiplierArr[0], xMultiplierArr[1]);
-            xMultiplierArr[1] = Math.max(xMultiplierArr[1], xMultiplierArr[0]);
+        if (ImGui.sliderFloat("X Multiplier", xMultiplierArr, xMultiplierMinValue, xMultiplierMaxValue, "%.3f", ImGuiSliderFlags.AlwaysClamp)) {
 
-            if (Math.abs(xMultiplierArr[0] - 1.000) < 0.050) {
-                xMultiplierArr[0] = 1.000f;
-            }
-            if (Math.abs(xMultiplierArr[1] - 1.000) < 0.050) {
-                xMultiplierArr[1] = 1.000f;
+            if (Math.abs(xMultiplierArr[0] - 0) < 0.050) {
+                xMultiplierArr[0] = 0f;
             }
 
-            config.setAimAssistXMultiplier(new ImFloat[] { new ImFloat(xMultiplierArr[0]), new ImFloat(xMultiplierArr[1]) });
+            config.setAimAssistXMultiplier(new ImFloat(xMultiplierArr[0]));
         }
 
         float[] yOffsetArr = { config.getAimAssistYOffset().floatValue()  };
@@ -89,7 +89,6 @@ public class AimAssistModule implements ToggleableModule, RenderableModule, Bind
             if (Math.abs(yOffsetArr[0] - 0) < 0.050) {
                 yOffsetArr[0] = 0f;
             }
-
 
             config.setAimAssistYOffset(new ImFloat(yOffsetArr[0]));
         }
@@ -104,14 +103,23 @@ public class AimAssistModule implements ToggleableModule, RenderableModule, Bind
             config.setAimAssistXOffset(new ImFloat(xOffsetArr[0]));
         }
 
-        float[] fovRangeArr = { config.getAimAssistRange().floatValue() };
+        float[] fovRangeArr = { config.getAimAssistFOVRange().floatValue() };
         if (ImGui.sliderFloat("FOV Range", fovRangeArr, 0F, 360F)) {
             float minAngle = (float) Math.round(fovRangeArr[0] / 45) * 45;
             if (Math.abs(fovRangeArr[0] - minAngle) < 0.05) {
                 fovRangeArr[0] = minAngle;
             }
+            config.setAimAssistFOVRange(new ImFloat(fovRangeArr[0]));
+        }
 
-            config.setAimAssistRange(new ImFloat(fovRangeArr[0]));
+        float[] rangeArr = { config.getAimAssistRange().floatValue() };
+        if (ImGui.sliderFloat("Max Distance", rangeArr, 0F, 360F)) {
+            float minAngle = (float) Math.round(rangeArr[0] / 45) * 45;
+            if (Math.abs(rangeArr[0] - minAngle) < 0.05) {
+                rangeArr[0] = minAngle;
+            }
+
+            config.setAimAssistRange(new ImFloat(rangeArr[0]));
         }
     }
 }

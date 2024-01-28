@@ -2,23 +2,28 @@ package net.caffeinemc.phosphor.modules;
 
 import imgui.ImGui;
 import imgui.type.ImBoolean;
+import imgui.type.ImFloat;
+import imgui.type.ImInt;
 import net.caffeinemc.phosphor.config.OwoConfig;
 import net.caffeinemc.phosphor.gui.module.RenderableModule;
 import net.caffeinemc.phosphor.gui.module.ToggleableModule;
+import net.caffeinemc.phosphor.gui.module.BindableModule;
+import imgui.ImGui;
+import imgui.flag.ImGuiSliderFlags;
 
-public class ForceGhostBlockModule implements ToggleableModule, RenderableModule {
+public class FlyModule implements ToggleableModule, RenderableModule  {
 
     @Override
     public String getName() {
-        return "ForceGhostBlock";
+        return "Fly";
     }
     @Override
     public String getTabName() {
-        return "Utils";
+        return "Movement";
     }
     @Override
     public ImBoolean getToggle(OwoConfig config) {
-        return config.getForceGhostBlock();
+        return config.getFlyEnabled();
     }
 
     @Override
@@ -31,15 +36,9 @@ public class ForceGhostBlockModule implements ToggleableModule, RenderableModule
         return null;
     }
 
-    @Override
     public void render(OwoConfig config) {
-        ImGui.checkbox("Slime", config.getSlimeBlocksEnabled());
-        ImGui.checkbox("Cobblestone", config.getCobblestoneBlocksEnabled());
-        ImGui.checkbox("Fence", config.getFenceBlocksEnabled());
-        ImGui.checkbox("Command Block", config.getCommandBlocksEnabled());
-        ImGui.checkbox("Air", config.getAirBlockEnabled());
+        ImInt FlyValue = new ImInt(config.getFlyValue());
+        ImGui.sliderInt("Fly Speed", FlyValue.getData(), 0, 10);
+        config.setFlyValue(FlyValue);
     }
 }
-
-
-
