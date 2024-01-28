@@ -20,5 +20,5 @@ Modules:
 - BlockInjector
 - FakeGamemode
 
-![App Screenshot](![image](https://github.com/ItzzOwo/OwoClient/assets/38808457/8bd036a1-594c-4c7d-97cb-e9427c0971dc))
+![App Screenshot](https://cdn.discordapp.com/attachments/1068233831934611456/1201286527351791627/image.png?ex=65c94442&is=65b6cf42&hm=907acb9ae3801d1b3411fb5e04cc66f129c95f352f8dd692ce319d5590453627&)
 
